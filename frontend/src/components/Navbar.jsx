@@ -1,11 +1,27 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
+  const token=localStorage.getItem("token");
+  const navigate=useNavigate()
+  const handleLogout=()=>{
+    localStorage.removeItem('token')
+    navigate('/');
+  }
     const navList=(
         <>
         <li><a href="/">Home</a></li>
         <li><a href="/userdashboard">Dashboard</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/profile">Profile</a></li>
+        {
+          token?(<>
+          <li><a href="" onClick={handleLogout}>Logout</a></li>
+          </>):(<>
+            <li><a href="/login">Login</a></li>
+          </>)
+        }
+        
+        
         </> )
   return (
     <>

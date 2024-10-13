@@ -3,7 +3,7 @@ import web_route from "./route/web.js";
 import dotenv from "dotenv"
 import cors from "cors"
 import cookieParser  from "cookie-parser"
-import jwt from "jsonwebtoken"
+
 const app=express();
 app.use(cookieParser());
 dotenv.config()
